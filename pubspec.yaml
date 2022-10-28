@@ -12,8 +12,15 @@ dependencies:
   flutter:
     sdk: flutter
 
+  core_module:
+    path: libraries/core_module
+
   dependencies_module:
     path: libraries/dependencies_module
+
+  design_system_module:
+    path: libraries/design_system_module
+
 
   cupertino_icons: ^1.0.2
 

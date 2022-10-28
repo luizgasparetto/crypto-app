@@ -36,6 +36,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.16.0"
+  core_module:
+    dependency: "direct main"
+    description:
+      path: "libraries/core_module"
+      relative: true
+    source: path
+    version: "0.0.1"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -47,6 +54,13 @@ packages:
     dependency: "direct main"
     description:
       path: "libraries/dependencies_module"
+      relative: true
+    source: path
+    version: "0.0.1"
+  design_system_module:
+    dependency: "direct main"
+    description:
+      path: "libraries/design_system_module"
       relative: true
     source: path
     version: "0.0.1"
