@@ -38,3 +38,6 @@ flutter:
     - family: Biotif
       fonts:
         - asset: fonts/Biotif-Regular.ttf
+    - family: Neuzeit
+      fonts:
+        - asset: fonts/Neuzeit-Grotesk-Bold.ttf
