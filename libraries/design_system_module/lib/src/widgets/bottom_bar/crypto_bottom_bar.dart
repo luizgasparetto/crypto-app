@@ -1,3 +1,4 @@
+import 'package:design_system_module/src/common/constants/crypto_colors.dart';
 import 'package:flutter/material.dart';
 
 class CryptoBottomBar extends StatefulWidget {
@@ -29,6 +30,9 @@ class _CryptoBottomBarState extends State<CryptoBottomBar> {
           ),
         ),
       ),
+      backgroundColor: CryptoColors.darkColor,
+      selectedItemColor: Colors.white,
+      unselectedItemColor: CryptoColors.dialogColor,
       showSelectedLabels: false,
       showUnselectedLabels: false,
       currentIndex: selected,

@@ -1,4 +1,5 @@
 import 'package:dependencies_module/dependencies_module.dart';
+import 'package:design_system_module/design_system_module.dart';
 import 'package:flutter/material.dart';
 
 class AppWidget extends StatelessWidget {
@@ -10,6 +11,7 @@ class AppWidget extends StatelessWidget {
       title: 'Crypto App',
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
+      theme: DarkTheme.get(),
     );
   }
 }

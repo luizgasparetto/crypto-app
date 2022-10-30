@@ -17,7 +17,10 @@ class _DashboardPageState extends State<DashboardPage> {
       body: PageView(
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
-        children: const [],
+        children: [
+          Container(color: Colors.red),
+          Container(color: Colors.blue),
+        ],
       ),
       bottomNavigationBar: CryptoBottomBar(
         onSelected: (index) => pageController.jumpToPage(index),
