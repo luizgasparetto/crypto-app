@@ -1,5 +1,7 @@
+import 'package:crypto_app/src/modules/home/presentation/home_page.dart';
 import 'package:design_system_module/design_system_module.dart';
 import 'package:flutter/material.dart';
+import 'package:iconly/iconly.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -18,15 +20,15 @@ class _DashboardPageState extends State<DashboardPage> {
         physics: const NeverScrollableScrollPhysics(),
         controller: pageController,
         children: [
-          Container(color: Colors.red),
+          const HomePage(),
           Container(color: Colors.blue),
         ],
       ),
       bottomNavigationBar: CryptoBottomBar(
         onSelected: (index) => pageController.jumpToPage(index),
         items: const [
-          CryptoBottomBarItem(icon: Icons.home, activeIcon: Icons.home_filled),
-          CryptoBottomBarItem(icon: Icons.person, activeIcon: Icons.person_add),
+          CryptoBottomBarItem(icon: IconlyLight.home, activeIcon: IconlyBold.home),
+          CryptoBottomBarItem(icon: IconlyLight.profile, activeIcon: IconlyBold.profile),
         ],
       ),
     );

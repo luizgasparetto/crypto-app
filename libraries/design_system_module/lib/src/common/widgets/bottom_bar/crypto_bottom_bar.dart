@@ -30,6 +30,7 @@ class _CryptoBottomBarState extends State<CryptoBottomBar> {
           ),
         ),
       ),
+      elevation: 0,
       backgroundColor: CryptoColors.darkColor,
       selectedItemColor: Colors.white,
       unselectedItemColor: CryptoColors.dialogColor,

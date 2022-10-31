@@ -11,6 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_modular: ^5.0.3
+  flutter_svg: ^1.1.6
   flutter_triple: ^1.2.7+4
 
 dev_dependencies:
