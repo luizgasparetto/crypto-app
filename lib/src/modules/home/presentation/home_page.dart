@@ -1,5 +1,4 @@
 import 'package:crypto_app/src/modules/home/presentation/widgets/home_wallet_banner.dart';
-import 'package:dependencies_module/dependencies_module.dart';
 import 'package:design_system_module/design_system_module.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -66,7 +65,23 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              const CryptoHorizontalCard(),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: ListView.builder(
+                  physics: const NeverScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                  itemCount: 5,
+                  itemBuilder: (_, __) {
+                    return Column(
+                      children: const [
+                        CryptoHorizontalCard(),
+                        SizedBox(height: 15),
+                      ],
+                    );
+                  },
+                ),
+              )
             ],
           ),
         ),
