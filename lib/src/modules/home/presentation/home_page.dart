@@ -1,4 +1,3 @@
-import 'package:crypto_app/src/modules/home/presentation/widgets/home_wallet_banner.dart';
 import 'package:design_system_module/design_system_module.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -11,6 +10,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final pageController = PageController(viewportFraction: 1.1);
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -35,7 +36,22 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               const SizedBox(height: 60),
-              const HomeWalletBanner(),
+              AspectRatio(
+                aspectRatio: 1.8,
+                child: PageView(
+                  controller: pageController,
+                  children: [
+                    FractionallySizedBox(
+                      widthFactor: 1 / pageController.viewportFraction,
+                      child: const CryptoWalletCard.green(),
+                    ),
+                    FractionallySizedBox(
+                      widthFactor: 1 / pageController.viewportFraction,
+                      child: const CryptoWalletCard.blue(),
+                    ),
+                  ],
+                ),
+              ),
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32),

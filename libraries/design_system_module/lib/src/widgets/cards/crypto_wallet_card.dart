@@ -1,8 +1,30 @@
 import 'package:design_system_module/design_system_module.dart';
 import 'package:flutter/material.dart';
 
-class HomeWalletBanner extends StatelessWidget {
-  const HomeWalletBanner({super.key});
+class CryptoWalletCard extends StatelessWidget {
+  final List<Color> gradient;
+
+  const CryptoWalletCard({super.key, required this.gradient});
+
+  const CryptoWalletCard.green({
+    super.key,
+    this.gradient = const [
+      Color.fromARGB(255, 109, 255, 158),
+      Color.fromARGB(255, 79, 230, 129),
+      Color.fromARGB(255, 109, 255, 158),
+      Color.fromARGB(255, 79, 230, 129),
+    ],
+  });
+
+  const CryptoWalletCard.blue({
+    super.key,
+    this.gradient = const [
+      Color(0xFF32a5f7),
+      Color(0xFFabbdf7),
+      Color(0xFF32a5f7),
+      Color(0xFFabbdf7),
+    ],
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +35,7 @@ class HomeWalletBanner extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(24),
-          gradient: const LinearGradient(
-            colors: [
-              Color.fromARGB(255, 109, 255, 158),
-              Color.fromARGB(255, 79, 230, 129),
-              Color.fromARGB(255, 109, 255, 158),
-              Color.fromARGB(255, 79, 230, 129),
-            ],
-          ),
+          gradient: LinearGradient(colors: gradient),
         ),
         child: Padding(
           padding: const EdgeInsets.all(18),

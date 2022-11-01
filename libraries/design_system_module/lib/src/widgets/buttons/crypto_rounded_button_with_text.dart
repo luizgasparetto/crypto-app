@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../design_system_module.dart';
+import '../../../design_system_module.dart';
 
 class CryptoRoundedButtonWithText extends StatelessWidget {
   final String text;
