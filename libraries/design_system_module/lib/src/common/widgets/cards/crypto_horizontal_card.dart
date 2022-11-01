@@ -43,7 +43,7 @@ class CryptoHorizontalCard extends StatelessWidget {
                     'R\$ 2.12',
                     style: TextStyle(color: CryptoColors.lightGrey),
                   ),
-                  const SizedBox(width: 15),
+                  const SizedBox(width: 10),
                   const Icon(
                     IconlyBold.arrow_up_2,
                     color: Color(0xFF25a75c),
@@ -57,7 +57,7 @@ class CryptoHorizontalCard extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(width: 20),
+          const SizedBox(width: 15),
           Padding(
             padding: const EdgeInsets.only(top: 12),
             child: SizedBox(
@@ -125,7 +125,7 @@ class CryptoHorizontalCard extends StatelessWidget {
               ),
               Text(
                 '\$39.34',
-                style: TextStyle(color: CryptoColors.lightGrey, fontSize: 14),
+                style: TextStyle(color: CryptoColors.lightGrey, fontSize: 12),
               )
             ],
           )

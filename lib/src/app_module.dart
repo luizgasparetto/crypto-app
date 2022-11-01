@@ -5,7 +5,7 @@ import 'package:dependencies_module/dependencies_module.dart';
 class AppModule extends Module {
   @override
   List<ModularRoute> get routes => [
-        ModuleRoute(Modular.initialRoute, module: DashboardModule()),
-        ModuleRoute('/home', module: HomeModule()),
+        ModuleRoute('/dashboard', module: DashboardModule()),
+        ModuleRoute(Modular.initialRoute, module: HomeModule()),
       ];
 }

@@ -6,7 +6,7 @@ class DarkTheme {
     return ThemeData(
       scaffoldBackgroundColor: CryptoColors.darkColor,
       backgroundColor: CryptoColors.darkColor,
-      fontFamily: 'Neuzeit',
+      fontFamily: 'Biotif',
     );
   }
 }
