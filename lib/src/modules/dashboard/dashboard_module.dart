@@ -4,6 +4,6 @@ import 'package:dependencies_module/dependencies_module.dart';
 class DashboardModule extends Module {
   @override
   List<ModularRoute> get routes => [
-        ChildRoute(Modular.initialRoute, child: (_, __) => const DashboardPage()),
+        ChildRoute('/', child: (_, __) => const DashboardPage()),
       ];
 }

@@ -1,3 +1,4 @@
+import 'package:dependencies_module/dependencies_module.dart';
 import 'package:design_system_module/design_system_module.dart';
 import 'package:flutter/material.dart';
 import 'package:iconly/iconly.dart';
@@ -14,8 +15,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
@@ -23,7 +22,7 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 60),
+              const SizedBox(height: 40),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -32,26 +31,14 @@ class _HomePageState extends State<HomePage> {
                     'Fake Crypto',
                     style: TextStyle(color: Colors.white, fontSize: 20),
                   ),
-                  CryptoRoundedButton(icon: IconlyBold.profile, onTap: () {})
+                  CryptoRoundedButton(
+                    icon: IconlyBold.profile,
+                    onTap: () => Modular.to.pushNamed('/user/profile'),
+                  )
                 ],
               ),
               const SizedBox(height: 60),
-              AspectRatio(
-                aspectRatio: 1.8,
-                child: PageView(
-                  controller: pageController,
-                  children: [
-                    FractionallySizedBox(
-                      widthFactor: 1 / pageController.viewportFraction,
-                      child: const CryptoWalletCard.green(),
-                    ),
-                    FractionallySizedBox(
-                      widthFactor: 1 / pageController.viewportFraction,
-                      child: const CryptoWalletCard.blue(),
-                    ),
-                  ],
-                ),
-              ),
+              const CryptoWalletCard.green(),
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32),
