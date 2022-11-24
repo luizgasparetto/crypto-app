@@ -18,14 +18,16 @@ class _ProfilePageState extends State<ProfilePage> {
         title: const Text('Profile'),
         centerTitle: true,
         elevation: 0,
-        toolbarHeight: 90,
+        toolbarHeight: 70,
       ),
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 20),
               AspectRatio(
                 aspectRatio: 5,
                 child: Row(
@@ -81,10 +83,81 @@ class _ProfilePageState extends State<ProfilePage> {
               const SizedBox(height: 40),
               Divider(height: 1, color: Colors.white.withOpacity(0.1)),
               const SizedBox(height: 40),
-              const Text(
-                'Configurações da conta',
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-              )
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Configurações da conta',
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  const SizedBox(height: 10),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const ListTile(
+                      leading: Icon(IconlyLight.lock, color: Colors.white),
+                      title: Text('Trocar senha', style: TextStyle(color: Colors.white)),
+                      trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 13),
+                    ),
+                  ),
+                  const ListTile(
+                    leading: Icon(IconlyLight.activity, color: Colors.white),
+                    title: Text('Desativar conta', style: TextStyle(color: Colors.white)),
+                    trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 13),
+                  ),
+                  const ListTile(
+                    leading: Icon(IconlyLight.wallet, color: Colors.white),
+                    title: Text('Wallets', style: TextStyle(color: Colors.white)),
+                    trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 13),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 30),
+              Divider(height: 1, color: Colors.white.withOpacity(0.1)),
+              const SizedBox(height: 30),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Termos e Privacidade',
+                    style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
+                  ),
+                  const SizedBox(height: 10),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const ListTile(
+                      leading: Icon(IconlyLight.paper, color: Colors.white),
+                      title: Text('Termos e Condições', style: TextStyle(color: Colors.white)),
+                      trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 13),
+                    ),
+                  ),
+                  const ListTile(
+                    leading: Icon(Icons.check, color: Colors.white),
+                    title: Text('Política de privacidade', style: TextStyle(color: Colors.white)),
+                    trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 13),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 30),
+              Divider(height: 1, color: Colors.white.withOpacity(0.1)),
+              const SizedBox(height: 30),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const ListTile(
+                    leading: Icon(IconlyLight.star, color: Colors.white),
+                    title: Text('Avaliar o aplicativo', style: TextStyle(color: Colors.white)),
+                    trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 13),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const ListTile(
+                      leading: Icon(IconlyLight.logout, color: Colors.red),
+                      title: Text('Sair', style: TextStyle(color: Colors.white)),
+                      trailing: Icon(Icons.arrow_forward_ios, color: Colors.white, size: 13),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
