@@ -33,10 +33,10 @@ jobs:
 
       - run: flutter analyze
 
-      # - run: flutter test
+      - run: flutter test
 
-      # - run: flutter test --coverage
-      # - run: flutter test --machine > test-results.json
+      - run: flutter test --coverage
+      - run: flutter test --machine > test-results.json
 
       # # Check tests coverage percentual
       # - uses: VeryGoodOpenSource/very_good_coverage@v1
@@ -45,9 +45,9 @@ jobs:
       #     min_coverage: 70
       #     exclude: '**/*_observer.dart **/change.dart'
 
-      # # Add a .json file with tests status
-      # - uses: dorny/test-reporter@v1
-      #   with:
-      #     name: Tests Results
-      #     path: test-results.json
-      #     reporter: flutter-json
+      # Add a .json file with tests status
+      - uses: dorny/test-reporter@v1
+        with:
+          name: Tests Results
+          path: test-results.json
+          reporter: flutter-json
