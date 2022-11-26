@@ -1,6 +1,5 @@
+import 'package:crypto_app/src/bootstrap.dart';
 import 'package:flutter/material.dart';
-
-import 'src/bootstrap.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
