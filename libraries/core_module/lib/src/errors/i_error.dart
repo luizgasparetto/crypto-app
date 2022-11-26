@@ -1,14 +1,17 @@
+import 'package:core_module/core.dart';
 import 'package:flutter/cupertino.dart';
 
 abstract class IError implements Exception {
   final String message;
   final StackTrace? stackTrace;
-  final String? error;
+  final dynamic error;
 
   IError({required this.message, this.stackTrace, this.error}) {
     if (stackTrace != null) {
       debugPrintStack(label: message, stackTrace: stackTrace);
     }
+
+    ErrorReport.externalFailureError(error, stackTrace, message);
   }
 }
 

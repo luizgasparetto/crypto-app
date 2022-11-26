@@ -1,3 +1,7 @@
+import 'dart:async';
+
+import 'package:core_module/core.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:developer';
 
@@ -13,5 +17,14 @@ Future<void> bootstrap() async {
 
   setTripleResolver(tripleResolverCallback);
 
-  runApp(ModularApp(module: AppModule(), child: const AppWidget()));
+  await Firebase.initializeApp();
+
+  runZonedGuarded(
+    () async {
+      await CrashlyticsService.initialize();
+
+      runApp(ModularApp(module: AppModule(), child: const AppWidget()));
+    },
+    CrashlyticsService.recordError,
+  );
 }
