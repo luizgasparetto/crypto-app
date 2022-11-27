@@ -22,3 +22,7 @@ class DomainError extends IError {
 class DatasourceError extends IError {
   DatasourceError({required super.message, super.stackTrace, super.error});
 }
+
+class AuthError extends IError {
+  AuthError({required super.message, super.stackTrace, super.error});
+}

@@ -15,6 +15,7 @@ dependencies:
     path: ../dependencies_module
   firebase_crashlytics: ^3.0.0
   firebase_auth: ^4.1.4
+  google_sign_in: ^5.4.2
 
 dev_dependencies:
   flutter_test:
