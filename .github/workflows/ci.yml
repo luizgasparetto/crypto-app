@@ -16,7 +16,7 @@ jobs:
 
     env:
       JAVA_VERSION: "11.0"
-      FLUTTER_VERSION: "3.3.4"
+      FLUTTER_VERSION: "3.3.8"
 
     steps:
       - uses: actions/checkout@v2
@@ -39,11 +39,11 @@ jobs:
       - run: flutter test --machine > test-results.json
 
       # # Check tests coverage percentual
-      # - uses: VeryGoodOpenSource/very_good_coverage@v1
-      #   with:
-      #     path: './coverage/lcov.info'
-      #     min_coverage: 70
-      #     exclude: '**/*_observer.dart **/change.dart'
+      - uses: VeryGoodOpenSource/very_good_coverage@v1
+        with:
+          path: './coverage/lcov.info'
+          min_coverage: 70
+          exclude: '**/*_observer.dart **/change.dart'
 
       # Add a .json file with tests status
       - uses: dorny/test-reporter@v1

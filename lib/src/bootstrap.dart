@@ -21,6 +21,10 @@ Future<void> bootstrap() async {
 
   await CrashlyticsService.initialize();
 
+  await FirebaseMessagingService.instance.initialize();
+
+  await FirebaseMessagingService.instance.getFirebaseToken();
+
   runZonedGuarded(
     () => runApp(ModularApp(module: AppModule(), child: const AppWidget())),
     CrashlyticsService.recordError,
