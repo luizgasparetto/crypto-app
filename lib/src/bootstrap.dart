@@ -19,12 +19,10 @@ Future<void> bootstrap() async {
 
   await Firebase.initializeApp();
 
-  runZonedGuarded(
-    () async {
-      await CrashlyticsService.initialize();
+  await CrashlyticsService.initialize();
 
-      runApp(ModularApp(module: AppModule(), child: const AppWidget()));
-    },
+  runZonedGuarded(
+    () => runApp(ModularApp(module: AppModule(), child: const AppWidget())),
     CrashlyticsService.recordError,
   );
 }

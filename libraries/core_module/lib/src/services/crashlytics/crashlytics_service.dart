@@ -10,9 +10,9 @@ class CrashlyticsService {
     try {
       await FirebaseCrashlytics.instance.setCrashlyticsCollectionEnabled(!kDebugMode);
 
-      FlutterError.onError = (details) async {
+      FlutterError.onError = (details) {
         log(details.exceptionAsString(), stackTrace: details.stack);
-        await FirebaseCrashlytics.instance.recordFlutterError(details);
+        FirebaseCrashlytics.instance.recordFlutterError(details);
       };
 
       Isolate.current.addErrorListener(ErrorReport.isolateErrorListener);

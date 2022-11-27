@@ -63,7 +63,7 @@ class _HomePageState extends State<HomePage> {
                     CryptoRoundedButtonWithText(
                       text: 'Exchange',
                       icon: Icons.import_export,
-                      onTap: () => throw Exception('Error Exchange'),
+                      onTap: () {},
                     ),
                   ],
                 ),
