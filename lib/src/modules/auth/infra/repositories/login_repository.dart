@@ -15,8 +15,8 @@ class LoginRepository implements ILoginRepository {
       await _loginDatasource.loginWithEmail(dto);
 
       return right(true);
-    } on IError catch (error, stackTrace) {
-      return left(DatasourceError(message: 'Failed Login With Email', stackTrace: stackTrace, error: error.toString()));
+    } on IError catch (error) {
+      return left(error);
     }
   }
 }
