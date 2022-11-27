@@ -2,16 +2,16 @@ import 'package:core_module/core.dart';
 
 import '../dtos/signup_with_email_dto.dart';
 import '../errors/domain_errors.dart';
-import '../repositories/i_signup_repository.dart';
+import '../repositories/i_auth_repository.dart';
 
 abstract class ISignUpWithEmailUsecase {
   Future<Either<IError, bool>> execute(SignUpWithEmailDTO dto);
 }
 
 class SignUpWithEmailUsecase implements ISignUpWithEmailUsecase {
-  final ISignUpRepository _signUpRepository;
+  final IAuthRepository _authRepository;
 
-  const SignUpWithEmailUsecase(this._signUpRepository);
+  const SignUpWithEmailUsecase(this._authRepository);
 
   @override
   Future<Either<IError, bool>> execute(SignUpWithEmailDTO dto) async {
@@ -27,6 +27,6 @@ class SignUpWithEmailUsecase implements ISignUpWithEmailUsecase {
       return left(InvalidPasswordError(message: dto.password.errorMessage));
     }
 
-    return _signUpRepository.signUpWithEmail(dto);
+    return _authRepository.signUpWithEmail(dto);
   }
 }

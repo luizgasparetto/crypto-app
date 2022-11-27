@@ -1,24 +1,24 @@
+import 'package:crypto_app/src/modules/auth/domain/repositories/i_auth_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import 'package:core_module/core.dart';
 
 import 'package:crypto_app/src/modules/auth/domain/dtos/signup_with_email_dto.dart';
-import 'package:crypto_app/src/modules/auth/domain/repositories/i_signup_repository.dart';
 import 'package:crypto_app/src/modules/auth/domain/usecases/signup_with_email_usecase.dart';
 import 'package:crypto_app/src/modules/auth/domain/value-objects/email.dart';
 import 'package:crypto_app/src/modules/auth/domain/value-objects/name.dart';
 import 'package:crypto_app/src/modules/auth/domain/value-objects/password.dart';
 import 'package:crypto_app/src/modules/auth/domain/errors/domain_errors.dart';
 
-class SignUpRepositoryMock extends Mock implements ISignUpRepository {}
+class AuthRepositoryMock extends Mock implements IAuthRepository {}
 
 void main() {
-  final signUpRepository = SignUpRepositoryMock();
-  final sut = SignUpWithEmailUsecase(signUpRepository);
+  final authRepository = AuthRepositoryMock();
+  final sut = SignUpWithEmailUsecase(authRepository);
 
   tearDownAll(() {
-    reset(signUpRepository);
+    reset(authRepository);
   });
 
   group('Success | ', () {
@@ -29,11 +29,11 @@ void main() {
         password: Password('123456'),
       );
 
-      when(() => signUpRepository.signUpWithEmail(signUpSuccessParams)).thenAnswer((_) async => right(true));
+      when(() => authRepository.signUpWithEmail(signUpSuccessParams)).thenAnswer((_) async => right(true));
 
       final response = await sut.execute(signUpSuccessParams);
 
-      verify(() => signUpRepository.signUpWithEmail(signUpSuccessParams)).called(1);
+      verify(() => authRepository.signUpWithEmail(signUpSuccessParams)).called(1);
       expect(response.fold((l) => l, (r) => r), equals(true));
     });
   });
@@ -48,7 +48,7 @@ void main() {
 
       final response = await sut.execute(nameFailParams);
 
-      verifyNever(() => signUpRepository.signUpWithEmail(nameFailParams));
+      verifyNever(() => authRepository.signUpWithEmail(nameFailParams));
       expect(response.fold((l) => l, (r) => r), isA<InvalidNameError>());
     });
 
@@ -61,7 +61,7 @@ void main() {
 
       final response = await sut.execute(emailFailParams);
 
-      verifyNever(() => signUpRepository.signUpWithEmail(emailFailParams));
+      verifyNever(() => authRepository.signUpWithEmail(emailFailParams));
       expect(response.fold((l) => l, (r) => r), isA<InvalidEmailError>());
     });
 
@@ -74,7 +74,7 @@ void main() {
 
       final response = await sut.execute(passwordFailParams);
 
-      verifyNever(() => signUpRepository.signUpWithEmail(passwordFailParams));
+      verifyNever(() => authRepository.signUpWithEmail(passwordFailParams));
       expect(response.fold((l) => l, (r) => r), isA<InvalidPasswordError>());
     });
 
@@ -85,13 +85,13 @@ void main() {
         password: Password('123456'),
       );
 
-      when(() => signUpRepository.signUpWithEmail(signUpSuccessParams)).thenAnswer(
+      when(() => authRepository.signUpWithEmail(signUpSuccessParams)).thenAnswer(
         (_) async => left(DatasourceError(message: 'Error')),
       );
 
       final response = await sut.execute(signUpSuccessParams);
 
-      verify(() => signUpRepository.signUpWithEmail(signUpSuccessParams)).called(1);
+      verify(() => authRepository.signUpWithEmail(signUpSuccessParams)).called(1);
       expect(response.fold((l) => l, (r) => r), isA<DatasourceError>());
     });
   });
