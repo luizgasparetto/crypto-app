@@ -15,11 +15,11 @@ class LoginWithEmailUsecase implements ILoginWithEmailUsecase {
 
   @override
   Future<Either<IError, bool>> execute(LoginWithEmailDTO dto) async {
-    if (!dto.email.isValid) {
+    if (!dto.email.isValid()) {
       return left(InvalidEmailError(message: dto.email.errorMessage));
     }
 
-    if (!dto.password.isValid) {
+    if (!dto.password.isValid()) {
       return left(InvalidPasswordError(message: dto.password.errorMessage));
     }
 

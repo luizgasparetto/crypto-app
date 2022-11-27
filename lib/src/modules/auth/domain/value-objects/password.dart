@@ -1,9 +1,14 @@
 import 'package:core_module/core.dart';
 
-import 'specifications/password_specifications.dart';
-
 class Password extends IValueObject {
-  Password(super.value) {
-    super.setSpecification(PasswordSpecifications());
+  Password(super.value);
+
+  @override
+  bool isValid() {
+    if (value.isEmpty) return false;
+
+    if (value.length < 6) return false;
+
+    return true;
   }
 }

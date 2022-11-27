@@ -1,5 +1,5 @@
 import 'package:core_module/core.dart';
-import 'package:crypto_app/src/modules/cryptocoin/domain/entities/cryptocoin_enity.dart';
+import 'package:crypto_app/src/modules/cryptocoin/domain/entities/cryptocoin_entity.dart';
 import 'package:crypto_app/src/modules/cryptocoin/domain/repositories/i_cryptocoin_repository.dart';
 
 abstract class IGetAllCryptocoinsUsecase {

@@ -15,15 +15,15 @@ class SignUpWithEmailUsecase implements ISignUpWithEmailUsecase {
 
   @override
   Future<Either<IError, bool>> execute(SignUpWithEmailDTO dto) async {
-    if (!dto.name.isValid) {
+    if (!dto.name.isValid()) {
       return left(InvalidNameError(message: dto.name.errorMessage));
     }
 
-    if (!dto.email.isValid) {
+    if (!dto.email.isValid()) {
       return left(InvalidEmailError(message: dto.email.errorMessage));
     }
 
-    if (!dto.password.isValid) {
+    if (!dto.password.isValid()) {
       return left(InvalidPasswordError(message: dto.password.errorMessage));
     }
 
