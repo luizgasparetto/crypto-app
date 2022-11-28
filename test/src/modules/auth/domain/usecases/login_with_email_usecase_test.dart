@@ -1,4 +1,3 @@
-import 'package:crypto_app/src/modules/auth/domain/repositories/i_auth_repository.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -9,6 +8,7 @@ import 'package:crypto_app/src/modules/auth/domain/errors/domain_errors.dart';
 import 'package:crypto_app/src/modules/auth/domain/usecases/login_with_email_usecase.dart';
 import 'package:crypto_app/src/modules/auth/domain/value-objects/email.dart';
 import 'package:crypto_app/src/modules/auth/domain/value-objects/password.dart';
+import 'package:crypto_app/src/modules/auth/domain/repositories/i_auth_repository.dart';
 
 class AuthRepositoryMock extends Mock implements IAuthRepository {}
 

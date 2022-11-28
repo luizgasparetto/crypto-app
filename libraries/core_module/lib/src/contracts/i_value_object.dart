@@ -1,6 +1,6 @@
 abstract class IValueObject {
   final String value;
-  late String errorMessage;
+  String errorMessage = 'Default Error Message';
 
   IValueObject(this.value);
 
